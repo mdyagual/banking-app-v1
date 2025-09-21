@@ -1,4 +1,10 @@
 rootProject.name = 'ms-clients'
 
-include ':app-clients'
-findProject(':app-clients')?.projectDir = file('./application/app-clients')
+include ':api'
+findProject(':api')?.projectDir = file('./application/api')
+
+include ':model'
+findProject(':model')?.projectDir = file('./domain/model')
+
+include ':usecase'
+findProject(':usecase')?.projectDir = file('./domain/usecase')
