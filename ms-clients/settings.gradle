@@ -1,0 +1,4 @@
+rootProject.name = 'ms-clients'
+
+include ':app-clients'
+findProject(':app-clients')?.projectDir = file('./application/app-clients')
