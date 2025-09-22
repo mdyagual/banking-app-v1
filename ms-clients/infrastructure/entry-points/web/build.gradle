@@ -1,6 +1,6 @@
 dependencies {
     implementation project(':model')
-
+    implementation project(':usecase')
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.36'
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.36'
