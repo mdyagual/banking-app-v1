@@ -1,4 +1,4 @@
-package ec.com.banking.app.config;
+package ec.com.banking.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
