@@ -1,47 +1,38 @@
 package ec.com.banking.model;
 
 public class Client extends Person {
-    private Long clienteId;
-    private String contrasenia;
-    private String estado;
+    private Long clientId;
+    private String password;
+    private Boolean status;
 
-    public Client(Long personaId,
-                  String nombre,
-                  String genero,
-                  Integer edad,
-                  String identificacion,
-                  String direccion,
-                  String telefono,
-                  Long clienteId,
-                  String contrasenia,
-                  String estado) {
-        super(personaId, nombre, genero, edad, identificacion, direccion, telefono);
-        this.clienteId = clienteId;
-        this.contrasenia = contrasenia;
-        this.estado = estado;
+    public Client(String name, String genre, Integer age, String idNumber, String address, String phone, Long clientId, String password, Boolean status) {
+        super(name, genre, age, idNumber, address, phone);
+        this.clientId = clientId;
+        this.password = password;
+        this.status = status;
     }
 
-    public Long getClienteId() {
-        return clienteId;
+    public Long getClientId() {
+        return clientId;
     }
 
-    public void setClienteId(Long clienteId) {
-        this.clienteId = clienteId;
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getEstado() {
-        return estado;
+    public Boolean getStatus() {
+        return status;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 }

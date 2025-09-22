@@ -1,77 +1,67 @@
 package ec.com.banking.model;
 
-public class Person {
-    protected Long personaId;
-    protected String nombre;
-    protected String genero;
-    protected Integer edad;
-    protected String identificacion;
-    protected String direccion;
-    protected String telefono;
+public abstract class Person {
+    protected String name;
+    protected String genre;
+    protected Integer age;
+    protected String idNumber;
+    protected String address;
+    protected String phone;
 
-    public Person(Long personaId, String nombre, String genero, Integer edad, String identificacion, String direccion, String telefono) {
-        this.personaId = personaId;
-        this.nombre = nombre;
-        this.genero = genero;
-        this.edad = edad;
-        this.identificacion = identificacion;
-        this.direccion = direccion;
-        this.telefono = telefono;
+    public Person(String name, String genre, Integer age, String idNumber, String address, String phone) {
+        this.name = name;
+        this.genre = genre;
+        this.age = age;
+        this.idNumber = idNumber;
+        this.address = address;
+        this.phone = phone;
     }
 
-    public Long getPersonaId() {
-        return personaId;
+    public String getName() {
+        return name;
     }
 
-    public void setPersonaId(Long personaId) {
-        this.personaId = personaId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
-    public String getGenero() {
-        return genero;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
-    public Integer getEdad() {
-        return edad;
+    public String getIdNumber() {
+        return idNumber;
     }
 
-    public void setEdad(Integer edad) {
-        this.edad = edad;
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
     }
 
-    public String getIdentificacion() {
-        return identificacion;
+    public String getAddress() {
+        return address;
     }
 
-    public void setIdentificacion(String identificacion) {
-        this.identificacion = identificacion;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
