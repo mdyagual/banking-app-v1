@@ -3,14 +3,16 @@ package ec.com.banking.usecase;
 import ec.com.banking.gateway.ClientRepository;
 import ec.com.banking.model.Client;
 
-public class SaveClientUseCase {
+import java.util.List;
+
+public class GetAllClientsUseCase {
     private final ClientRepository clientRepository;
 
-    public SaveClientUseCase(ClientRepository clientRepository) {
+    public GetAllClientsUseCase(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
 
-    public Client execute(Client client) {
-        return clientRepository.save(client);
+    public List<Client> execute() {
+        return clientRepository.getAll();
     }
 }
