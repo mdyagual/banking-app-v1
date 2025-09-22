@@ -6,12 +6,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Table(name = "clients")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "clients")
 public class ClientEntity extends PersonEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "client_seq")

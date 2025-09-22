@@ -7,6 +7,8 @@ import ec.com.banking.repository.config.IPostgresRepository;
 import ec.com.banking.repository.mapper.IClientMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class PostgresAdapter implements ClientRepository {
     private final IPostgresRepository repository;
@@ -19,12 +21,28 @@ public class PostgresAdapter implements ClientRepository {
 
 
     @Override
+    public List<Client> getAll() {
+        return repository.findAll().stream().map(mapper::toModel).toList();
+    }
+
+    @Override
     public Client findById(Long clientId) {
-        return null;
+        return mapper.toModel(repository.findById(clientId).get());
+
     }
 
     @Override
     public Client save(Client client) {
         return mapper.toModel(repository.save(mapper.toEntity(client)));
+    }
+
+    @Override
+    public Client update(Client client) {
+        return mapper.toModel(repository.save(mapper.toEntity(client)));
+    }
+
+    @Override
+    public void delete(Long clientId) {
+        repository.deleteById(clientId);
     }
 }
