@@ -15,7 +15,7 @@ import lombok.Setter;
 public class ClientEntity extends PersonEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "client_seq")
-    @SequenceGenerator(name = "client_seq", sequenceName = "person_sequence", allocationSize = 1, initialValue = 2000)
+    @SequenceGenerator(name = "client_seq", sequenceName = "client_sequence", allocationSize = 1, initialValue = 2000)
     private Long clientId;
     private String password;
     private Boolean status;
