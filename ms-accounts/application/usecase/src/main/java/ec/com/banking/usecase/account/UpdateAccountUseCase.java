@@ -1,5 +1,6 @@
 package ec.com.banking.usecase.account;
 
+import ec.com.banking.core.exception.AccountNotFoundException;
 import ec.com.banking.core.gateway.AccountRepository;
 import ec.com.banking.model.Account;
 
@@ -10,7 +11,10 @@ public class UpdateAccountUseCase {
         this.accountRepository = accountRepository;
     }
 
-    public Account execute(ec.com.banking.model.Account account) {
+    public Account execute(Account account) {
+        if(accountRepository.findById(account.getAccountId()) == null){
+            throw new AccountNotFoundException(account.getAccountId());
+        }
         return accountRepository.update(account);
     }
 }

@@ -11,4 +11,6 @@ public interface AccountRepository {
     Account update(Account account);
     void delete(Long accountId);
 
+    boolean existsByAccountNumber(String accountNumber);
+
 }
