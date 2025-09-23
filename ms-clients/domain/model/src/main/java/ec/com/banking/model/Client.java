@@ -12,6 +12,10 @@ public class Client extends Person {
         this.status = status;
     }
 
+    public static Client newClient(String name, String genre, Integer age, String idNumber, String address, String phone, String password) {
+        return new Client(name, genre, age, idNumber, address, phone, null, password, true);
+    }
+
     public Long getClientId() {
         return clientId;
     }

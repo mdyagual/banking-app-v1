@@ -4,6 +4,7 @@ import ec.com.banking.web.dto.request.CreateClientDTO;
 import ec.com.banking.web.dto.request.UpdateClientDTO;
 import ec.com.banking.web.dto.response.ClientDTO;
 import ec.com.banking.web.handler.ClientHandler;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,17 +27,16 @@ public class ClientController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ClientDTO> findById(@PathVariable Long id) {
-        // Implementation for fetching all clients would go here
-        return ResponseEntity.ok().body(clientHandler.findById(id)); // Placeholder response
+        return ResponseEntity.ok().body(clientHandler.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<ClientDTO> save(@RequestBody CreateClientDTO clientDTO) {
+    public ResponseEntity<ClientDTO> save(@Valid @RequestBody CreateClientDTO clientDTO) {
         return ResponseEntity.ok().body(clientHandler.save(clientDTO));
     }
 
     @PutMapping
-    public ResponseEntity<ClientDTO> update(@RequestBody UpdateClientDTO clientDTO) {
+    public ResponseEntity<ClientDTO> update(@Valid @RequestBody UpdateClientDTO clientDTO) {
         return ResponseEntity.ok().body(clientHandler.update(clientDTO));
     }
 

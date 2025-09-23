@@ -43,7 +43,16 @@ public class ClientHandler {
     }
 
     public ClientDTO save(CreateClientDTO clientDTO) {
-        return mapper.toDTO(saveClientUseCase.execute(mapper.toDomain(clientDTO)));
+
+        return mapper.toDTO(saveClientUseCase.execute(Client.newClient(
+                clientDTO.getName(),
+                clientDTO.getGenre(),
+                clientDTO.getAge(),
+                clientDTO.getIdNumber(),
+                clientDTO.getAddress(),
+                clientDTO.getPhone(),
+                clientDTO.getPassword()
+        )));
     }
 
     public ClientDTO update(UpdateClientDTO clientDTO) {
