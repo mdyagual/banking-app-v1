@@ -13,7 +13,6 @@ import org.mapstruct.MappingTarget;
 public interface IClientMapper {
     //TO-DO: Borrar metodo porque no se usa ya que se está usando un metodo estatico en la entidad
     @Mapping(target="clientId", ignore = true)
-
     @Mapping(target="status", ignore = true)
     Client toDomain(CreateClientDTO clientDTO);
 
