@@ -1,2 +1,19 @@
 rootProject.name = 'ms-accounts'
 
+include ':api'
+findProject(':api')?.projectDir = file('./application/api')
+
+include ':model'
+findProject(':model')?.projectDir = file('./domain/model')
+
+include ':core'
+findProject(':core')?.projectDir = file('./domain/core')
+
+include ':usecase'
+findProject(':usecase')?.projectDir = file('./application/usecase')
+
+include ':postgres-repository'
+findProject(':postgres-repository')?.projectDir = file('./infrastructure/driven-adapters/postgres-repository')
+
+include ':web'
+findProject(':web')?.projectDir = file('./infrastructure/entry-points/web')
