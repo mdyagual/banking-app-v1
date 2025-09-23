@@ -43,4 +43,9 @@ public class AccountAdapter implements AccountRepository {
     public void delete(Long accountId) {
         repository.deleteById(accountId);
     }
+
+    @Override
+    public boolean existsByAccountNumber(String accountNumber) {
+        return false;
+    }
 }

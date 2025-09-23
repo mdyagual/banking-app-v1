@@ -25,8 +25,8 @@ public class AccountEntity {
     private String accountType;
     private BigDecimal onlineBalance;
     private Boolean status;
-    private Long customerId;
+    private Long clientId;
 
-    @OneToMany(mappedBy = "accountId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Transaction> transactions;
 }

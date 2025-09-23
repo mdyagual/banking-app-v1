@@ -25,8 +25,8 @@ public class TransactionEntity {
     private LocalDateTime transactionDate;
     private String transactionType;
     private BigDecimal amount;
-    private BigDecimal initialBalance;
-    private BigDecimal availableBalance;
+    /*private BigDecimal initialBalance;
+    private BigDecimal availableBalance;*/
 
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false)
