@@ -39,7 +39,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ClientDuplicatedException.class)
-    public ResponseEntity<CustomErrorResponse> handleClientNotFound(ClientDuplicatedException ex) {
+    public ResponseEntity<CustomErrorResponse> handleClientDuplicated(ClientDuplicatedException ex) {
         CustomErrorResponse errorResponse = new CustomErrorResponse(
                 HttpStatus.CONFLICT.value(),
                 ex.getMessage()
