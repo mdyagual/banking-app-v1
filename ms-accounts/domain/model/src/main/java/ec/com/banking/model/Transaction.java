@@ -22,8 +22,8 @@ public class Transaction {
         this.accountId = accountId;
     }
 
-    public static Transaction newTransaction(String transactionType, BigDecimal amount, BigDecimal initialBalance, BigDecimal availableBalance, Long accountId) {
-        return new Transaction(null, LocalDateTime.now(), transactionType, amount, initialBalance, availableBalance, accountId);
+    public static Transaction newTransaction(String transactionType, BigDecimal amount, Long accountId) {
+        return new Transaction(null, LocalDateTime.now(), transactionType, amount, null, null, accountId);
     }
 
     public Long getTransactionId() {

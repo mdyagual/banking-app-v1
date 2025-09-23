@@ -28,5 +28,5 @@ public class AccountEntity {
     private Long clientId;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Transaction> transactions;
+    private List<TransactionEntity> transactions;
 }

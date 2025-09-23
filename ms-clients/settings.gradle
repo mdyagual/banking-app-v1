@@ -9,7 +9,6 @@ findProject(':model')?.projectDir = file('./domain/model')
 include ':core'
 findProject(':core')?.projectDir = file('./domain/core')
 
-
 include ':usecase'
 findProject(':usecase')?.projectDir = file('./application/usecase')
 

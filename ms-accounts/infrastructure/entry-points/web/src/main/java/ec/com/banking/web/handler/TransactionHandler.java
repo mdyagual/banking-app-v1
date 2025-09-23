@@ -1,5 +1,6 @@
 package ec.com.banking.web.handler;
 
+import ec.com.banking.model.Transaction;
 import ec.com.banking.usecase.transaction.GetAllTransactionsUseCase;
 import ec.com.banking.usecase.transaction.GetTransactionByIdUseCase;
 import ec.com.banking.usecase.transaction.SaveTransactionUseCase;
@@ -37,8 +38,11 @@ public class TransactionHandler {
     }
 
     public TransactionDTO save(CreateTransactionDTO transactionDTO) {
-        var transaction = mapper.toDomain(transactionDTO);
-        return mapper.toDTO(saveTransactionUseCase.execute(transaction));
+        return mapper.toDTO(saveTransactionUseCase.execute(Transaction.newTransaction(
+                transactionDTO.getTransactionType(),
+                transactionDTO.getAmount(),
+                transactionDTO.getAccountId()
+        )));
     }
 
 

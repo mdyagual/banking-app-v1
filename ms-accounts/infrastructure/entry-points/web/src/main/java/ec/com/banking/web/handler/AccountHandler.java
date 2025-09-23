@@ -1,5 +1,6 @@
 package ec.com.banking.web.handler;
 
+import ec.com.banking.model.Account;
 import ec.com.banking.usecase.account.*;
 import ec.com.banking.web.dto.request.CreateAccountDTO;
 import ec.com.banking.web.dto.request.UpdateAccountDTO;
@@ -41,8 +42,13 @@ public class AccountHandler {
         return mapper.toDTO(getAccountByIdUseCase.execute(id));
     }
     public AccountDTO save(CreateAccountDTO accountDTO) {
-        var account = mapper.toDomain(accountDTO);
-        return mapper.toDTO(saveAccountUseCase.execute(account));
+
+        return mapper.toDTO(saveAccountUseCase.execute(Account.newAccount(
+                accountDTO.getAccountNumber(),
+                accountDTO.getAccountType(),
+                accountDTO.getOnlineBalance(),
+                accountDTO.getClientId()
+        )));
     }
 
     public AccountDTO update(UpdateAccountDTO accountDTO) {

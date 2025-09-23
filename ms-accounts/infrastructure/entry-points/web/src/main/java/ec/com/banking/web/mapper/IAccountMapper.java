@@ -15,7 +15,7 @@ public interface IAccountMapper {
     Account toDomain(CreateAccountDTO accountDTO);
 
     @Mapping(target = "transactions",
-            expression = "java(account.getTransactions() == null ? java.util.Collections.emptyList() : account.getTransactions().stream().map(b -> b.getId()).toList())")
+            expression = "java(account.getTransactions() == null ? java.util.Collections.emptyList() : account.getTransactions().stream().map(a -> a.getAccountId()).toList())")
     AccountDTO toDTO(Account account);
 
     void updateDomain(@MappingTarget Account account, UpdateAccountDTO accountDTO);
