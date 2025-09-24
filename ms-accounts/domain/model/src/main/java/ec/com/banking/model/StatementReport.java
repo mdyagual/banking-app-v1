@@ -1,10 +1,10 @@
 package ec.com.banking.model;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class StatementReport {
-    private LocalDateTime transactionDate;
+    private LocalDate transactionDate;
     private String clientName;
     private String accountNumber;
     private String accountType;
@@ -14,7 +14,7 @@ public class StatementReport {
     private String transactionDescription;
     private Boolean accountStatus;
 
-    public StatementReport(LocalDateTime transactionDate, String clientName, String accountNumber, String accountType, BigDecimal initialBalance, BigDecimal transactionAmount, BigDecimal availableBalance, String transactionDescription, Boolean accountStatus) {
+    public StatementReport(LocalDate transactionDate, String clientName, String accountNumber, String accountType, BigDecimal initialBalance, BigDecimal transactionAmount, BigDecimal availableBalance, String transactionDescription, Boolean accountStatus) {
         this.transactionDate = transactionDate;
         this.clientName = clientName;
         this.accountNumber = accountNumber;
@@ -26,11 +26,11 @@ public class StatementReport {
         this.accountStatus = accountStatus;
     }
 
-    public LocalDateTime getTransactionDate() {
+    public LocalDate getTransactionDate() {
         return transactionDate;
     }
 
-    public void setTransactionDate(LocalDateTime transactionDate) {
+    public void setTransactionDate(LocalDate transactionDate) {
         this.transactionDate = transactionDate;
     }
 

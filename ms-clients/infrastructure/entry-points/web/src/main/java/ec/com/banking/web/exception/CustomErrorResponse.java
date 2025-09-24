@@ -3,18 +3,18 @@ package ec.com.banking.web.exception;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 public class CustomErrorResponse {
     private int status;
     private String message;
-    private LocalDateTime timestamp;
+    private LocalDate timestamp;
 
     public CustomErrorResponse(int status, String message) {
         this.status = status;
         this.message = message;
-        this.timestamp = LocalDateTime.now();
+        this.timestamp = LocalDate.now();
     }
 }

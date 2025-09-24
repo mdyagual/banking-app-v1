@@ -10,7 +10,7 @@ import ec.com.banking.repository.entity.TransactionEntity;
 import ec.com.banking.repository.mapper.ITransactionMapper;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -47,7 +47,7 @@ public class TransactionAdapter implements TransactionRepository {
     }
 
     @Override
-    public List<Transaction> getForStatementReport(LocalDateTime startDate, LocalDateTime endDate) {
+    public List<Transaction> getForStatementReport(LocalDate startDate, LocalDate endDate) {
         return repository.findAll()
                 .stream()
                 .filter(transactionEntity -> insideRange(startDate, endDate, transactionEntity.getTransactionDate()))
@@ -56,7 +56,7 @@ public class TransactionAdapter implements TransactionRepository {
 
     }
 
-    private Boolean insideRange(LocalDateTime startDate, LocalDateTime endDate, LocalDateTime date){
+    private Boolean insideRange(LocalDate startDate, LocalDate endDate, LocalDate date){
         return (date.isAfter(startDate) || date.isEqual(startDate)) && (date.isBefore(endDate) || date.isEqual(endDate));
     }
 }

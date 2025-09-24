@@ -1,11 +1,11 @@
 package ec.com.banking.model;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Transaction {
     private Long transactionId;
-    private LocalDateTime transactionDate;
+    private LocalDate transactionDate;
     private String transactionType;
     private BigDecimal amount;
     private BigDecimal initialBalance;
@@ -13,7 +13,7 @@ public class Transaction {
     private Long accountId;
 
 
-    public Transaction(Long transactionId, LocalDateTime transactionDate, String transactionType, BigDecimal amount, BigDecimal initialBalance, BigDecimal availableBalance, Long accountId) {
+    public Transaction(Long transactionId, LocalDate transactionDate, String transactionType, BigDecimal amount, BigDecimal initialBalance, BigDecimal availableBalance, Long accountId) {
         this.transactionId = transactionId;
         this.transactionDate = transactionDate;
         this.transactionType = transactionType;
@@ -25,11 +25,11 @@ public class Transaction {
 
 
     public static Transaction opened(String transactionType, BigDecimal amount, Long accountId) {
-        return new Transaction(null, LocalDateTime.now(), transactionType, amount, null, null, accountId);
+        return new Transaction(null, LocalDate.now(), transactionType, amount, null, null, accountId);
     }
 
     public static Transaction closed(String transactionType, BigDecimal amount, BigDecimal initialBalance, BigDecimal availableBalance, Long accountId) {
-        return new Transaction(null, LocalDateTime.now(), transactionType, amount, initialBalance, availableBalance, accountId);
+        return new Transaction(null, LocalDate.now(), transactionType, amount, initialBalance, availableBalance, accountId);
     }
 
     public Long getTransactionId() {
@@ -40,11 +40,11 @@ public class Transaction {
         this.transactionId = transactionId;
     }
 
-    public LocalDateTime getTransactionDate() {
+    public LocalDate getTransactionDate() {
         return transactionDate;
     }
 
-    public void setTransactionDate(LocalDateTime transactionDate) {
+    public void setTransactionDate(LocalDate transactionDate) {
         this.transactionDate = transactionDate;
     }
 

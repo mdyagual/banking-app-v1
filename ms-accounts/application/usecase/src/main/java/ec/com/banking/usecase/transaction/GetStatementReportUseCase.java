@@ -7,7 +7,7 @@ import ec.com.banking.model.StatementReport;
 import ec.com.banking.model.Transaction;
 import ec.com.banking.usecase.account.GetAccountByIdUseCase;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 public class GetStatementReportUseCase {
@@ -21,7 +21,7 @@ public class GetStatementReportUseCase {
         this.checkClientMessage = checkClientMessage;
     }
 
-    public List<StatementReport> execute(LocalDateTime startDate, LocalDateTime endDate){
+    public List<StatementReport> execute(LocalDate startDate, LocalDate endDate){
         List<Transaction> transactions = transactionRepository.getForStatementReport(startDate, endDate);
         return transactions.stream().map(transaction -> {
             Account account = getAccountByIdUseCase.execute(transaction.getAccountId());

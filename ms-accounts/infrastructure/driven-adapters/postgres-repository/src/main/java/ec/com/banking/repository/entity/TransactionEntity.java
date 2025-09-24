@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -21,7 +21,7 @@ public class TransactionEntity {
     @SequenceGenerator(name = "transaction_seq", sequenceName = "transaction_sequence", allocationSize = 1, initialValue = 1000)
     private Long transactionId;
 
-    private LocalDateTime transactionDate;
+    private LocalDate transactionDate;
     private String transactionType;
     private BigDecimal amount;
     private BigDecimal initialBalance;

@@ -6,7 +6,7 @@ import ec.com.banking.web.dto.response.StatementReportDTO;
 import ec.com.banking.web.mapper.IStatementReportMapper;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Component
@@ -19,7 +19,7 @@ public class StatementHandler {
         this.mapper = mapper;
     }
 
-    public List<StatementReportDTO> findStatementReport(LocalDateTime startDate, LocalDateTime endDate){
+    public List<StatementReportDTO> findStatementReport(LocalDate startDate, LocalDate endDate){
         return getStatementReportUseCase.execute(startDate,endDate).stream()
                 .map(mapper::toDTO)
                 .toList();

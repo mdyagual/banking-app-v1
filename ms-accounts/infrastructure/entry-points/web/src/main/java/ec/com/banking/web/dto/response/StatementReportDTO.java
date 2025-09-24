@@ -6,14 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class StatementReportDTO {
-    private LocalDateTime transactionDate;
+    private LocalDate transactionDate;
     private String clientName;
     private String accountNumber;
     private String accountType;

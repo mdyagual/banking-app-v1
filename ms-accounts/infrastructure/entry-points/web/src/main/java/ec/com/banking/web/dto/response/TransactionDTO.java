@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class TransactionDTO {
     private Long transactionId;
-    private LocalDateTime transactionDate;
+    private LocalDate transactionDate;
     private String transactionType;
     private BigDecimal amount;
     private BigDecimal initialBalance;
