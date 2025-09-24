@@ -1,9 +1,14 @@
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     implementation project (':usecase')
     implementation project (':postgres-repository')
     implementation project (':web')
     implementation project (':rabbit-info-bus')
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
 }
