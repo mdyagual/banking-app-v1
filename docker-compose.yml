@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  postgres_clients:
+    image: postgres:15
+    container_name: postgres_clients
+    restart: always
+    environment:
+      POSTGRES_DB: clients_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./clients_db.sql:/docker-entrypoint-initdb.d/clients_db.sql
+
+    postgres_accounts:
+      image: postgres:15
+      container_name: postgres_accounts
+      restart: always
+      environment:
+        POSTGRES_DB: accounts_db
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+      ports:
+        - "5433:5432"
+      volumes:
+        - ./accounts_db.sql:/docker-entrypoint-initdb.d/accounts_db.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  client-service:
+    build:
+      context: ./ms-clients/application/api
+    container_name: client-service
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_clients:5432/clients_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      postgres_bank:
+        condition: service_healthy
+
+  account-service:
+    build:
+      context: ./ms-accounts/application/api
+    container_name: account-service
+    restart: always
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_accounts:5432/accounts_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      postgres_bank:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
