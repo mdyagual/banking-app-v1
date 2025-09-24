@@ -9,7 +9,12 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring", implementationName = "WebTransactionMapperImpl")
 public interface ITransactionMapper {
     @Mapping(target="transactionId", ignore = true)
+    @Mapping(target="transactionDate", ignore = true)
+    @Mapping(target="initialBalance", ignore = true)
+    @Mapping(target="availableBalance", ignore = true)
     Transaction toDomain(CreateTransactionDTO transactionDTO);
+
+
 
     TransactionDTO toDTO(Transaction transaction);
 

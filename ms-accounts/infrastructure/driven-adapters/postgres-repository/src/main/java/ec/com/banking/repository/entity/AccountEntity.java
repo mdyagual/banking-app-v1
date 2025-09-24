@@ -1,6 +1,5 @@
 package ec.com.banking.repository.entity;
 
-import ec.com.banking.model.Transaction;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

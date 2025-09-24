@@ -12,10 +12,9 @@ import org.mapstruct.MappingTarget;
 public interface IAccountMapper {
     @Mapping(target="accountId", ignore = true)
     @Mapping(target="status", ignore = true)
+    @Mapping(target="transactions", ignore = true)
     Account toDomain(CreateAccountDTO accountDTO);
 
-    @Mapping(target = "transactions",
-            expression = "java(account.getTransactions() == null ? java.util.Collections.emptyList() : account.getTransactions().stream().map(a -> a.getAccountId()).toList())")
     AccountDTO toDTO(Account account);
 
     void updateDomain(@MappingTarget Account account, UpdateAccountDTO accountDTO);

@@ -1,6 +1,5 @@
 package ec.com.banking.repository.entity;
 
-import ec.com.banking.model.Account;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,8 +24,8 @@ public class TransactionEntity {
     private LocalDateTime transactionDate;
     private String transactionType;
     private BigDecimal amount;
-    /*private BigDecimal initialBalance;
-    private BigDecimal availableBalance;*/
+    private BigDecimal initialBalance;
+    private BigDecimal availableBalance;
 
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false)
