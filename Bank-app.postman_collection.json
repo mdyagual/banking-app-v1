@@ -1,0 +1,421 @@
+{
+	"info": {
+		"_postman_id": "fc207a14-2cab-4c49-af5b-7bd30711c91c",
+		"name": "Bank-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30403974"
+	},
+	"item": [
+		{
+			"name": "ms-clients",
+			"item": [
+				{
+					"name": "allClients",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ms-clients}}/clients",
+							"host": [
+								"{{ms-clients}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Janira Lopez\",\r\n    \"genre\": \"F\",\r\n    \"age\": 44,\r\n    \"idNumber\": \"0777623770\",\r\n    \"address\": \"Sur\",\r\n    \"phone\":\"987456\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ms-clients}}/clients",
+							"host": [
+								"{{ms-clients}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "clientById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ms-clients}}/clients/2001",
+							"host": [
+								"{{ms-clients}}"
+							],
+							"path": [
+								"clients",
+								"2001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editClient",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\":2001,\r\n    \"name\": \"Mishell Yagual\",\r\n    \"genre\": \"F\",\r\n    \"age\": 20,\r\n    \"idNumber\": \"0931413660\",\r\n    \"address\": \"Norte\",\r\n    \"phone\":\"123456789\",\r\n    \"password\": \"password\",\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ms-clients}}/clients",
+							"host": [
+								"{{ms-clients}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteClient",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{ms-clients}}/clients/2001",
+							"host": [
+								"{{ms-clients}}"
+							],
+							"path": [
+								"clients",
+								"2001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ms-accounts",
+			"item": [
+				{
+					"name": "accounts",
+					"item": [
+						{
+							"name": "accountById",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ms-accounts}}/accounts/3001",
+									"host": [
+										"{{ms-accounts}}"
+									],
+									"path": [
+										"accounts",
+										"3001"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteAccount",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ms-accounts}}/accounts/3001",
+									"host": [
+										"{{ms-accounts}}"
+									],
+									"path": [
+										"accounts",
+										"3001"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "editAccount",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"accountId\":3001,\r\n    \"onlineBalance\":4000,\r\n    \"status\":true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ms-accounts}}/accounts",
+									"host": [
+										"{{ms-accounts}}"
+									],
+									"path": [
+										"accounts"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "transactions",
+					"item": [
+						{
+							"name": "transactionById",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ms-accounts}}/transactions/1003",
+									"host": [
+										"{{ms-accounts}}"
+									],
+									"path": [
+										"transactions",
+										"1003"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "report",
+					"item": []
+				},
+				{
+					"name": "allAccounts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ms-accounts}}/accounts",
+							"host": [
+								"{{ms-accounts}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "statementReport",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ms-accounts}}/reports?startDate=2025-08-01&endDate=2025-09-24",
+							"host": [
+								"{{ms-accounts}}"
+							],
+							"path": [
+								"reports"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2025-08-01"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-09-24"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allTransactions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ms-accounts}}/transactions",
+							"host": [
+								"{{ms-accounts}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"accountNumber\":24012,\r\n \"accountType\":\"AC\",\r\n \"onlineBalance\":1000,\r\n \"clientId\": 2001\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ms-accounts}}/accounts",
+							"host": [
+								"{{ms-accounts}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transactions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"accountId\":3002,\r\n \"transactionType\":\"C\",\r\n \"amount\": 50\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ms-accounts}}/transactions",
+							"host": [
+								"{{ms-accounts}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "ms-clients",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "ms-accounts",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
