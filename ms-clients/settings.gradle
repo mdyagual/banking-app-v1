@@ -15,5 +15,8 @@ findProject(':usecase')?.projectDir = file('./application/usecase')
 include ':postgres-repository'
 findProject(':postgres-repository')?.projectDir = file('./infrastructure/driven-adapters/postgres-repository')
 
+include 'rabbit-listener-bus'
+findProject(':rabbit-listener-bus').projectDir = file('./infrastructure/entry-points/rabbit-listener-bus')
+
 include ':web'
 findProject(':web')?.projectDir = file('./infrastructure/entry-points/web')
