@@ -23,8 +23,8 @@ public class TransactionController {
         return ResponseEntity.ok().body(transactionHandler.findAll());
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<TransactionDTO> findById(Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<TransactionDTO> findById(@PathVariable Long id) {
         return ResponseEntity.ok().body(transactionHandler.findById(id));
     }
 
