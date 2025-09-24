@@ -5,16 +5,13 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Service
 public class ClientValidatorListener {
-    private final RabbitTemplate rabbitTemplate;
     private final ClientRepository clientRepository;
 
-    public ClientValidatorListener(RabbitTemplate rabbitTemplate, ClientRepository clientRepository) {
-        this.rabbitTemplate = rabbitTemplate;
+    public ClientValidatorListener(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
 

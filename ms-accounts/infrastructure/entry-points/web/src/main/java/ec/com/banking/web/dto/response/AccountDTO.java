@@ -1,6 +1,5 @@
 package ec.com.banking.web.dto.response;
 
-import ec.com.banking.model.Transaction;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
