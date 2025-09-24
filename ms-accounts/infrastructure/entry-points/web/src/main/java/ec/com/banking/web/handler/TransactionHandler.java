@@ -38,7 +38,7 @@ public class TransactionHandler {
     }
 
     public TransactionDTO save(CreateTransactionDTO transactionDTO) {
-        return mapper.toDTO(saveTransactionUseCase.execute(Transaction.newTransaction(
+        return mapper.toDTO(saveTransactionUseCase.execute(Transaction.opened(
                 transactionDTO.getTransactionType(),
                 transactionDTO.getAmount(),
                 transactionDTO.getAccountId()

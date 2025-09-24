@@ -10,8 +10,18 @@ public class Transaction {
     private BigDecimal amount;
     private BigDecimal initialBalance;
     private BigDecimal availableBalance;
+    //private Account account;
     private Long accountId;
 
+    /*public Transaction(Long transactionId, LocalDateTime transactionDate, String transactionType, BigDecimal amount, BigDecimal initialBalance, BigDecimal availableBalance, Account account) {
+        this.transactionId = transactionId;
+        this.transactionDate = transactionDate;
+        this.transactionType = transactionType;
+        this.amount = amount;
+        this.initialBalance = initialBalance;
+        this.availableBalance = availableBalance;
+        this.account = account;
+    }*/
     public Transaction(Long transactionId, LocalDateTime transactionDate, String transactionType, BigDecimal amount, BigDecimal initialBalance, BigDecimal availableBalance, Long accountId) {
         this.transactionId = transactionId;
         this.transactionDate = transactionDate;
@@ -22,8 +32,13 @@ public class Transaction {
         this.accountId = accountId;
     }
 
-    public static Transaction newTransaction(String transactionType, BigDecimal amount, Long accountId) {
+
+    public static Transaction opened(String transactionType, BigDecimal amount, Long accountId) {
         return new Transaction(null, LocalDateTime.now(), transactionType, amount, null, null, accountId);
+    }
+
+    public static Transaction closed(String transactionType, BigDecimal amount, BigDecimal initialBalance, BigDecimal availableBalance, Long accountId) {
+        return new Transaction(null, LocalDateTime.now(), transactionType, amount, initialBalance, availableBalance, accountId);
     }
 
     public Long getTransactionId() {
@@ -74,10 +89,18 @@ public class Transaction {
         this.availableBalance = availableBalance;
     }
 
+    /*public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }*/
+
+
     public Long getAccountId() {
         return accountId;
     }
-
     public void setAccountId(Long accountId) {
         this.accountId = accountId;
     }
