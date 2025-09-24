@@ -4,11 +4,11 @@ package ec.com.banking;
 import ec.com.banking.web.AccountController;
 import ec.com.banking.web.dto.response.AccountDTO;
 import ec.com.banking.web.handler.AccountHandler;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
+
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.TestConfiguration;
