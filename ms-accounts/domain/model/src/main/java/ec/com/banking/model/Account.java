@@ -10,20 +10,8 @@ public class Account {
     private BigDecimal onlineBalance;
     private Boolean status;
     private Long clientId;
-    //private List<Transaction> transactions;
     private List<Long> transactions;
 
-    /*public Account() {
-    }*/
-    /*public Account(Long accountId, String accountNumber, String accountType, BigDecimal onlineBalance, Boolean status, Long clientId, List<Transaction> transactions) {
-        this.accountId = accountId;
-        this.accountNumber = accountNumber;
-        this.accountType = accountType;
-        this.onlineBalance = onlineBalance;
-        this.status = status;
-        this.clientId = clientId;
-        this.transactions = transactions;
-    }*/
     public Account(Long accountId, String accountNumber, String accountType, BigDecimal onlineBalance, Boolean status, Long clientId, List<Long> transactions) {
         this.accountId = accountId;
         this.accountNumber = accountNumber;
@@ -41,10 +29,6 @@ public class Account {
     public static Account updateAccount(Long accountId, String accountNumber, String accountType, BigDecimal onlineBalance, Long clientId, List<Long> transactions) {
         return new Account(accountId, accountNumber, accountType, onlineBalance, true, clientId, transactions);
     }
-
-    /*public static Account check(Long accountId){
-        return new Account(accountId, null, null, null, null, null, null);
-    }*/
 
     public Long getAccountId() {
         return accountId;
@@ -93,14 +77,6 @@ public class Account {
     public void setClientId(Long clientId) {
         this.clientId = clientId;
     }
-
-    /*public List<Transaction> getTransactions() {
-        return transactions;
-    }
-
-    public void setTransactions(List<Transaction> transactions) {
-        this.transactions = transactions;
-    }*/
 
     public List<Long> getTransactions() {
         return transactions;

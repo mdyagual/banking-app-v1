@@ -1,6 +1,6 @@
 package ec.com.banking.broker;
 
-import ec.com.banking.core.gateway.BusMessageBroker;
+import ec.com.banking.core.gateway.CheckClientMessage;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 @Service
-public class ClientValidatorPublisher implements BusMessageBroker {
+public class ClientValidatorPublisher implements CheckClientMessage {
     private final RabbitTemplate rabbitTemplate;
 
 
@@ -23,7 +23,7 @@ public class ClientValidatorPublisher implements BusMessageBroker {
     }
 
     @Override
-    public Map<String, Object> validateClient(Long clientId) {
+    public Map<String, Object> obtain(Long clientId) {
         @SuppressWarnings("unchecked")
         Map<String, Object> response = (Map<String, Object>) rabbitTemplate.convertSendAndReceive(
                 "client.check.exchange",
