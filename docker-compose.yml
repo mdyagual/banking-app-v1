@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   postgres_clients:
     image: postgres:15
@@ -12,20 +10,28 @@ services:
     ports:
       - "5432:5432"
     volumes:
+      - postgres_clients_data:/var/lib/postgresql/data
       - ./clients_db.sql:/docker-entrypoint-initdb.d/clients_db.sql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
-    postgres_accounts:
-      image: postgres:15
-      container_name: postgres_accounts
-      restart: always
-      environment:
-        POSTGRES_DB: accounts_db
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres
-      ports:
-        - "5433:5432"
-      volumes:
-        - ./accounts_db.sql:/docker-entrypoint-initdb.d/accounts_db.sql
+  postgres_accounts:
+    image: postgres:15
+    container_name: postgres_accounts
+    restart: always
+    environment:
+      POSTGRES_DB: accounts_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_accounts_data:/var/lib/postgresql/data
+      - ./accounts_db.sql:/docker-entrypoint-initdb.d/accounts_db.sql
+
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
@@ -45,7 +51,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: postgres
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
     depends_on:
-      postgres_bank:
+      postgres_clients:
         condition: service_healthy
 
   account-service:
@@ -61,8 +67,9 @@ services:
       SPRING_DATASOURCE_PASSWORD: postgres
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
     depends_on:
-      postgres_bank:
+      postgres_accounts:
         condition: service_healthy
 
 volumes:
-  postgres_data:
+  postgres_clients_data:
+  postgres_accounts_data:
