@@ -7,3 +7,7 @@ dependencies {
     implementation project (':web')
     implementation project (':rabbit-listener-bus')
 }
+
+springBoot {
+    mainClass = 'ec.com.banking.ClientApplication'
+}

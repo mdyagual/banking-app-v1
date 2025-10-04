@@ -9,6 +9,10 @@ dependencies {
     implementation project (':rabbit-info-bus')
 }
 
+springBoot {
+    mainClass = 'ec.com.banking.AccountApplication'
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }
